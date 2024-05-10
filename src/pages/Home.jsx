@@ -24,10 +24,10 @@ const Home = () => {
                 </div>
                 <Places />
                 <BannerImg img={Batik}/>
-                <Blogs />
+                <Foodpedia />
                 <Banner />
                 <BannerImg img={Timur} />
-                <Foodpedia />
+                <Blogs />
                 <ContactComp />
             </div>
         </>

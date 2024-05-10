@@ -10,13 +10,14 @@ import NoPage from "./pages/NoPage";
 import Tour from "./pages/Tour";
 import Foodie from "./pages/Foodie";
 import Contact from "./pages/Contact";
+import WeatherPage from "./pages/Weather";
 
 const App = () => {
-  return(
+  return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element= {<Layout />}>
+          <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/blogs" element={<Blogs />} />
@@ -26,12 +27,12 @@ const App = () => {
             <Route path="/tour" element={<Tour />} />
             <Route path="/food" element={<Foodie />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/weather" element={<WeatherPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
     </>
-  ); 
+  );
 };
 
 export default App;
-
