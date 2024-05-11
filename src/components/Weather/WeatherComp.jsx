@@ -61,9 +61,13 @@ const WeatherWidget = () => {
   }, [regions]);
 
   return (
-    <div className="mt-[100px]">
-      <h2>Weather</h2>
-      <select value={selectedRegion} onChange={handleRegionChange}>
+    <div className="mt-20 bg-gray-50 p-8 rounded-lg shadow-md">
+      <h2 className="text-xl font-bold mb-4">Weather</h2>
+      <select
+        value={selectedRegion}
+        onChange={handleRegionChange}
+        className="block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+      >
         <option value="">Select Region</option>
         {regions.map((region) => (
           <option key={region.id} value={region.id}>
@@ -72,45 +76,23 @@ const WeatherWidget = () => {
         ))}
       </select>
       {weatherData ? (
-        <div className="flex justify-evenly">
-          <div>
-            <p>{weatherData[0].jamCuaca}</p>
-            <p>{weatherData[0].tempC}°C</p>
-            <img
-              src={`https://ibnux.github.io/BMKG-importer/icon/${weatherData[0].kodeCuaca}.png`}
-              alt="Weather icon"
-            />
-          </div>
-          <div>
-            <p>{weatherData[1].jamCuaca}</p>
-            <p>{weatherData[1].tempC}°C</p>
-            <img
-              src={`https://ibnux.github.io/BMKG-importer/icon/${weatherData[1].kodeCuaca}.png`}
-              alt="Weather icon"
-            />
-          </div>
-          <div>
-            <p>{weatherData[2].jamCuaca}</p>
-            <p>{weatherData[2].tempC}°C</p>
-            <img
-              src={`https://ibnux.github.io/BMKG-importer/icon/${weatherData[1].kodeCuaca}.png`}
-              alt="Weather icon"
-            />
-          </div>
-          <div>
-            <p>{weatherData[3].jamCuaca}</p>
-            <p>{weatherData[3].tempC}°C</p>
-            <img
-              src={`https://ibnux.github.io/BMKG-importer/icon/${weatherData[1].kodeCuaca}.png`}
-              alt="Weather icon"
-            />
-          </div>
+        <div className="flex justify-evenly mt-4">
+          {weatherData.slice(0, 4).map((data, index) => (
+            <div key={index} className="text-center">
+              <p className="text-sm">{data.jamCuaca}</p>
+              <p className="text-lg font-bold">{data.tempC}°C</p>
+              <img
+                src={`https://ibnux.github.io/BMKG-importer/icon/${data.kodeCuaca}.png`}
+                alt="Weather icon"
+                className="w-12 h-12 mx-auto"
+              />
+            </div>
+          ))}
         </div>
       ) : (
-        <p>Loading...</p>
+        <p className="mt-4 text-center">Loading...</p>
       )}
     </div>
   );
 };
-
 export default WeatherWidget;
