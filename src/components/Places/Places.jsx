@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import PlacesCard from "./PlacesCard";
-import { IoIosBus } from "react-icons/io";
 import Img1 from "../../assets/places/gambar1.jpeg";
 import Img2 from "../../assets/places/gambar2.jpeg";
 import Img3 from "../../assets/places/gambar3.jpeg";
@@ -141,7 +140,6 @@ const Places = () => {
     <div className="bg-gray/50 py-10">
       <div className="container">
         <div className="flex items-center my-8 border-l-8 border-primary/50 py-2 pl-2 text-3xl font-bold">
-          <IoIosBus className="text-3xl mr-2" />
           <h1>Best Tourist Attraction to visit</h1>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">

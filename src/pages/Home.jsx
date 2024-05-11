@@ -10,11 +10,13 @@ import Timur from "../assets/vector2.jpeg";
 import ContactComp from "../components/Contact/ContactComp";
 import Foodpedia from "../components/Foodpedia/Foodpedia";
 import Banner2 from "../components/Banner/Banner2";
+import WeatherWidget from "../components/Weather/WeatherComp";
 
 const Home = () => {
   return (
     <>
       <div>
+        <WeatherWidget />
         <div className="relative h-[700px]">
           <video
             autoPlay

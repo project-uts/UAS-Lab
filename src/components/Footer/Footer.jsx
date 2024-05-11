@@ -7,6 +7,7 @@ import {
   FaLocationArrow,
   FaMobileAlt,
 } from "react-icons/fa";
+import { IoIosArrowForward } from "react-icons/io";
 import MainVid from "../../assets/video/MainVid.mp4";
 import { Link } from "react-router-dom";
 
@@ -93,8 +94,9 @@ const Footer = () => {
                         onClick={() => {
                           window.scrollTo(0, 0);
                         }}
+                        className="mb-5 inline-block flex items-center"
                       >
-                        <span>&#11162;</span>
+                        <IoIosArrowForward />
                         <span>{title}</span>
                       </Link>
                     </li>

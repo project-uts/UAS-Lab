@@ -72,12 +72,12 @@ const Foodpedia = () => {
   return (
     <div className="bg-gray/50 py-10">
       <div className="container">
-        <h1
+        <div
           data-aos="fade-up"
           className="my-8 border-l-8 border-primary/50 py-2 pl-2 text-3xl font-bold"
         >
-          &#xf805;FoodPedia
-        </h1>
+          <h1>FoodPedia</h1>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {FoodpediaData.map((item, index) => (
             <FoodpediaCard key={index} {...item} />

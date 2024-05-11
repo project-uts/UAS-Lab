@@ -8,7 +8,6 @@ const Layout = () => {
   return (
     <>
       <NavBar />
-      <WeatherWidget />
       <Outlet />
       <Footer />
     </>
