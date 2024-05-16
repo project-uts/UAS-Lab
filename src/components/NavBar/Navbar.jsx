@@ -3,7 +3,6 @@ import { Link, NavLink } from "react-router-dom";
 import LogoImg from "../../assets/assets2.webp";
 import { HiMenuAlt1, HiMenuAlt3 } from "react-icons/hi";
 import ResponsiveMenu from "./ResponsiveMenu";
-import { BsPersonFill } from "react-icons/bs";
 
 const NavBar = () => {
   const [showMenu, setshowMenu] = useState(false);
@@ -92,6 +91,15 @@ const NavBar = () => {
                     onClick={() => window.scrollTo(0, 0)}
                   >
                     Contact
+                  </NavLink>
+                </li>
+                <li className="py-4">
+                  <NavLink
+                    to="/travel"
+                    activeClassname="active"
+                    onClick={() => window.scrollTo(0, 0)}
+                  >
+                    Travel
                   </NavLink>
                 </li>
               </ul>

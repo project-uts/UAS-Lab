@@ -34,6 +34,10 @@ const navbarLinks = [
     name: "Contact",
     link: "/contact",
   },
+  {
+    name: "Travel",
+    link: "/travel",
+  },
 ];
 
 const ResponsiveMenu = ({ showMenu, setshowMenu }) => {
@@ -94,6 +98,8 @@ const ResponsiveMenu = ({ showMenu, setshowMenu }) => {
                       <IoMdContact size={24} className="mr-2" />
                       <span>{name}</span>
                     </>
+                  ) : name === "Travel" ? (
+                    <span>{name}</span>
                   ) : (
                     name
                   )}

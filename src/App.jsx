@@ -8,6 +8,7 @@ import Tour from "./pages/Tour";
 import Foodie from "./pages/Foodie";
 import Contact from "./pages/Contact";
 import WeatherPage from "./pages/Weather";
+import Travel from "./pages/Travel";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
             <Route path="/food" element={<Foodie />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/weather" element={<WeatherPage />} />
+            <Route path="/travel" element={<Travel />} />
           </Route>
         </Routes>
       </BrowserRouter>
