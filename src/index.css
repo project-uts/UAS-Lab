@@ -3,8 +3,48 @@
 @tailwind utilities;
 
 @layer base {
-    .active {
-        @apply text-primary;
-    }
+  .active {
+    @apply text-primary;
+  }
 }
 
+/* src/DateSelector.css */
+.Overlay {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.Modal {
+  width: 200px;
+  max-width: 30%;
+  margin: auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  outline: none;
+}
+
+.date-picker-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.date-picker-section {
+  flex: 1;
+}
+
+button {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
