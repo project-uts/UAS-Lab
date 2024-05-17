@@ -14,7 +14,7 @@ const BlogsData = [
         id: 1,
         image: Img1,
         title: "Baju Gothil",
-        description: "Baju Gothil  atau warok ponorogo merupakan pakaian adat Jawa Timur in dipakai oleh para pria. Pakaian tradisional ini memiliki warna yang kkhas yakni hitam polos dengan ukuran longgar serta lengan panjang. Baju adat ini memiliki pasangannya, yakni Celana Komprang yang ukurannya besar dan longgar saat dipakai seolah memberi ruang pada penggunanya untuk menikmati ruang gerak. Bentuk celana ini pun cukup unik, ditambah lagi celana ini dijahit dengan teknik khusus.", 
+        description: "Baju Gothil atau warok ponorogo merupakan pakaian adat Jawa Timur in dipakai oleh para pria. Pakaian tradisional ini memiliki warna yang kkhas yakni hitam polos dengan ukuran longgar serta lengan panjang. Baju adat ini memiliki pasangannya, yakni Celana Komprang yang ukurannya besar dan longgar saat dipakai seolah memberi ruang pada penggunanya untuk menikmati ruang gerak. Bentuk celana ini pun cukup unik, ditambah lagi celana ini dijahit dengan teknik khusus.",
     },
     {
         id: 2,
@@ -28,7 +28,7 @@ const BlogsData = [
         title: "Kebaya Rancongan",
         description: "Pakaian ini pun memiliki motif sederhana dan biasanya terbuat dari kain tipis dan menerawang, seperti brokat. Agar kebaya ini nampak serasi dengan bawahannya, wanita Madura mengenakan kain batik yang dikenakan seperti rok panjang.",
     },
-]
+];
 
 const BlogsComp = () => {
     const [popupData, setPopupData] = useState(null);
@@ -53,7 +53,7 @@ const BlogsComp = () => {
 
     return (
         <div>
-            <div className="container">
+            <div className="container mx-auto">
                 <h1 data-aos="fade-up" className="my-8 border-l-8 border-primary/50 py-2 pl-2 text-3xl font-bold">Cultural</h1>
                 <Slider {...settings}>
                     {BlogsData.map((item, index) => (
@@ -64,17 +64,20 @@ const BlogsComp = () => {
                 </Slider>
             </div>
             {popupData && (
-                <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center" onClick={closePopup}>
-                    <div className="bg-white p-4 rounded-lg max-w-lg">
+                <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50" onClick={closePopup}>
+                    <div className="bg-white p-4 rounded-lg max-w-lg relative" onClick={(e) => e.stopPropagation()}>
                         <button className="absolute top-0 right-0 m-2" onClick={closePopup}>
                             Close
                         </button>
-                        <img src={popupData.image} alt={popupData.title} className="mb-2 rounded-lg" style={{ width: "100%" }} />
+                        <img src={popupData.image} alt={popupData.title} className="mb-2 rounded-lg" style={{ width: "80%" }} />
                         <h2 className="text-xl font-bold">{popupData.title}</h2>
                         <p>{popupData.description}</p>
                     </div>
                 </div>
             )}
+            <footer className="p-6 bg-gray-200 relative z-10">
+                <p className="text-center">Website Footer</p>
+            </footer>
         </div>
     );
 };
