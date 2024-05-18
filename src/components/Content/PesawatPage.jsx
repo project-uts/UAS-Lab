@@ -17,8 +17,6 @@ const PesawatPage = () => {
   const { inputValueDari, inputValueKe, startDate, endDate } =
     location.state || {};
 
-  const [airlines, setAirlines] = useState([]);
-
   const fromId = inputValueDari
     ? airportCodes[inputValueDari.toLowerCase()]
     : "";
@@ -53,6 +51,14 @@ const PesawatPage = () => {
         console.error("error", error);
       });
   }, [fromId, toId, departDate, returnDate]);
+
+  const formatToIDR = (amount) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(amount);
+  };
+
   console.log(results.data);
 
   return (
@@ -62,7 +68,28 @@ const PesawatPage = () => {
       <br />
       <br />
       <br />
-      <h1>Flights</h1>
+      <div>
+        <h1>Flights</h1>
+        {
+          <ul>
+            {results.data &&
+              results.data.aggregation &&
+              results.data.aggregation.airlines &&
+              results.data.aggregation.airlines.map((airline, index) => (
+                <li key={index} className="m-3">
+                  <div>Flight Name: {airline.name}</div>
+                  <img src={airline.logoUrl} />
+                  <div>
+                    {formatToIDR(
+                      airline.minPrice.units + airline.minPrice.nanos / 1e9
+                    )}
+                  </div>
+                </li>
+              ))}
+          </ul>
+        }
+      </div>
+      <div></div>
     </div>
   );
 };
