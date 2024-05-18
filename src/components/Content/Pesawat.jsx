@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   FaPlaneDeparture,
   FaPlaneArrival,
@@ -11,17 +11,17 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const Pesawat = () => {
+  const navigate = useNavigate();
   const [inputValueDari, setInputValueDari] = useState("");
   const [isDropdownDari, setIsDropdownDari] = useState(false);
-  const [optionsDari] = useState(["option1", "option2", "option3"]);
+  const [optionsDari] = useState(["Surabaya", "option2", "option3"]);
 
   const [inputValueKe, setInputValueKe] = useState("");
   const [isDropdownKe, setIsDropdownKe] = useState(false);
-  const [optionsKe] = useState(["optionA", "optionB", "optionC"]);
+  const [optionsKe] = useState(["Jakarta", "optionB", "optionC"]);
 
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const [activeDropdown, setActiveDropdown] = useState("Dari");
 
   const dropdownDariRef = useRef(null);
   const dropdownKeRef = useRef(null);
@@ -67,6 +67,23 @@ const Pesawat = () => {
     ) {
       setIsDropdownKe(false);
     }
+  };
+
+  const handleSeacrh = (e) => {
+    e.preventDefault();
+    navigate("/pesawatpages", {
+      state: {
+        inputValueDari: inputValueDari,
+        inputValueKe: inputValueKe,
+        startDate: startDate,
+        endDate: endDate,
+      },
+    });
+  };
+
+  const handleDateChange = (date) => {
+    const formattedDate = date ? date.toISOString().split("T")[0] : null;
+    setStartDate(formattedDate);
   };
 
   useEffect(() => {
@@ -132,7 +149,7 @@ const Pesawat = () => {
             )}
           </div>
         </div>
-        <div className="flex flex-row ml-[250px]">
+        <div className="flex flex-row ml-[190px]">
           {/*tanggal*/}
           <div>
             <p>Tanggal Keberangkatan</p>
@@ -140,7 +157,7 @@ const Pesawat = () => {
               <SlCalender className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               <DatePicker
                 selected={startDate}
-                onChange={(date) => setStartDate(date)}
+                onChange={handleDateChange}
                 placeholderText="Pilih tanggal keberangkatan"
                 className="p-2 border rounded-tl-[20px] rounded-bl-[20px] w-[250px] pl-10"
                 dateFormat="yyyy-MM-dd"
@@ -156,17 +173,18 @@ const Pesawat = () => {
                 onChange={(date) => setEndDate(date)}
                 placeholderText="Pilih tanggal kedatangan"
                 className="p-2 border rounded-tr-[20px] rounded-br-[20px] w-[250px] pl-10"
-                dateFormat="dd/MM/yyyy"
+                dateFormat="yyyy-MM-dd"
               />
             </div>
           </div>
           <div>
-            <div className="flex items-center ml-[20px]">
-              <NavLink to="/pesawatpage">
-                <button className="mt-[25px] p-[13px] rounded-br-[10px] rounded-tr-[10px] rounded-bl-[10px] rounded-tl-[10px]">
-                  <FaSearch />
-                </button>
-              </NavLink>
+            <div className="flex items-center ml-[10px]">
+              <button
+                className="mt-[25px] p-[13px] rounded-br-[10px] rounded-tr-[10px] rounded-bl-[10px] rounded-tl-[10px]"
+                onClick={handleSeacrh}
+              >
+                <FaSearch />
+              </button>
             </div>
           </div>
         </div>

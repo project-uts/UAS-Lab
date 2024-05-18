@@ -11,6 +11,7 @@ import WeatherPage from "./pages/Weather";
 import Travel from "./pages/Travel";
 import HotelPage from "./components/Content/HotelPage";
 import PesawatPage from "./components/Content/PesawatPage";
+import RentalPage from "./components/Content/RentalPage";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
             <Route path="/travel" element={<Travel />} />
             <Route path="/hotelpages" Component={HotelPage} />
             <Route path="/pesawatpages" Component={PesawatPage} />
+            <Route path="/rentalPages" Component={RentalPage} />
           </Route>
         </Routes>
       </BrowserRouter>

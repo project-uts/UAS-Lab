@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import Modal from "react-modal";
 import "../../index.css";
 
 import axios from "axios";
@@ -19,9 +18,8 @@ const Hotel = () => {
     "Kediri",
   ]);
 
-  const [checkInDate, setCheckInDate] = useState(null);
-  const [checkOutDate, setCheckOutDate] = useState(null);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [startCheckInDate, setStartCheckInDate] = useState(null);
+  const [endCheckOutDate, setEndCheckOutDate] = useState(null);
 
   const [dewasa, setDewasa] = useState(1);
   const [anak, setAnak] = useState(0);
@@ -69,22 +67,6 @@ const Hotel = () => {
 
   const handleInputClick = () => {
     setIsDropdownVisible(true);
-  };
-
-  const openModal = () => {
-    setModalIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setModalIsOpen(false);
-  };
-
-  const handleCheckInDateChange = (date) => {
-    setCheckInDate(date);
-  };
-
-  const handleCheckOutDateChange = (date) => {
-    setCheckOutDate(date);
   };
 
   const formatDateString = (dateString) => {
@@ -135,59 +117,26 @@ const Hotel = () => {
       </div>
       <div>
         <h4 className="text-white mr-2">Tanggal Check in & Check Out</h4>
-        <div>
-          <div>
-            <input
-              type="text"
-              value={checkInDate ? checkInDate.toISOString().split("T")[0] : ""}
-              onClick={openModal}
-              readOnly // Membuat input tidak dapat diedit
-              placeholder="Pilih tanggal"
-              className="p-[9px]  w-[300px] mt-6"
+        <div className="flex flex-row">
+          <div className="relative">
+            <DatePicker
+              selected={startCheckInDate}
+              onChange={(date) => setStartCheckInDate(date)}
+              placeholderText="Pilih Tanggal Check In"
+              className="p-2 border mt-6"
+              dateFormat="yyyy-MM-dd"
             />
           </div>
           {/* Input untuk memilih tanggal check-out */}
-          {/*<div>
-            <label>Check-out: </label>
-            <input
-              type="text"
-              value={
-                checkOutDate ? checkOutDate.toISOString().split("T")[0] : ""
-              }
-              onClick={openModal}
-              readOnly // Membuat input tidak dapat diedit
-              placeholder="Pilih tanggal"
+          <div>
+            <DatePicker
+              selected={endCheckOutDate}
+              onChange={(date) => setEndCheckOutDate(date)}
+              placeholderText="Pilih Tanggal Check Out"
+              className="p-2 border mt-6"
+              dateFormat="yyyy-MM-dd"
             />
-            </div>*/}
-          {/* Modal untuk memilih tanggal check-in dan check-out */}
-          <Modal
-            isOpen={modalIsOpen}
-            onRequestClose={closeModal}
-            contentLabel="Pilih Tanggal"
-          >
-            <h2>Pilih Tanggal Check-in dan Check-out</h2>
-            <div>
-              <label>Check-in: </label>
-              <DatePicker
-                selected={checkInDate}
-                onChange={handleCheckInDateChange}
-                dateFormat="yyyy-MM-dd" // Format tanggal yang digunakan
-                isClearable // Membuat tanggal dapat dihapus
-                placeholderText="Pilih tanggal" // Teks placeholder
-              />
-            </div>
-            <div>
-              <label>Check-out: </label>
-              <DatePicker
-                selected={checkOutDate}
-                onChange={handleCheckOutDateChange}
-                dateFormat="yyyy-MM-dd" // Format tanggal yang digunakan
-                isClearable // Membuat tanggal dapat dihapus
-                placeholderText="Pilih tanggal" // Teks placeholder
-              />
-            </div>
-            <button onClick={closeModal}>Simpan</button>
-          </Modal>
+          </div>
           {/* {checkInDate && checkOutDate && (
             <p>
               Anda memilih tanggal check-in:{" "}
