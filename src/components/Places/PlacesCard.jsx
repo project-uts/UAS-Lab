@@ -34,7 +34,7 @@ const PlacesCard = ({
         <h1 className="line-clamp-1 font-bold text-xl">{title}</h1>
         <div className="flex items-center gap-2 opacity-70">
           <IoLocationSharp />
-          <span>{location}</span>
+          <span className="line-clamp-2">{location}</span>
         </div>
         <p className="line-clamp-1">{description}</p>
         <div className="flex items-center justify-between border-t-2 y-3 !mt-3">

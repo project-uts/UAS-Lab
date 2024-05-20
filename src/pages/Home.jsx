@@ -6,7 +6,7 @@ import BannerImg from "../components/BannerImg/BannerImg";
 import Batik from "../assets/batik.jpeg";
 import Blogs from "./Blogs";
 import Banner from "../components/Banner/Banner";
-import Timur from "../assets/vector2.jpeg";
+import Timur from "../assets/eastvector.jpeg";
 import ContactComp from "../components/Contact/ContactComp";
 import Foodpedia from "../components/Foodpedia/Foodpedia";
 import Banner2 from "../components/Banner/Banner2";

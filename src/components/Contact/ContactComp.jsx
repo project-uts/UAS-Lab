@@ -9,25 +9,25 @@ const ContactData = [
   {
     id: 1,
     name: "Albert",
-    text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus sit sequi earum, dolorum ex exercitationem dolores eos id asperiores itaque!",
+    text: "Albert Alexander - “Alek”, seorang pemuda cina tulen yang pintar, ganteng, dan rajin menabung datang ke Wakanda untuk menyembah codingan.",
     img: Img1,
   },
   {
     id: 2,
     name: "Rafi",
-    text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus sit sequi earum, dolorum ex exercitationem dolores eos id asperiores itaque!",
+    text: "Rafi Raditya Hartanto - “Rap”, manusia terkeren sejagat raya. Datang ke UMN untuk menjadi panutan, memberi dukungan dan membangun semangat bagi semua orang yang mengenalnya.",
     img: Img2,
   },
   {
     id: 3,
     name: "Pierre",
-    text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus sit sequi earum, dolorum ex exercitationem dolores eos id asperiores itaque!",
+    text: "Pierre Rambe - “Pir”, pemuka kelompok “Para Pemuja Codingan”. Ialah yang pertama kali menyembah codingan sebagai arah dan tujuan hidupnya.",
     img: Img3,
   },
   {
     id: 4,
     name: "Obert",
-    text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus sit sequi earum, dolorum ex exercitationem dolores eos id asperiores itaque!",
+    text: "Sebastian Obert Cendana - “Obet”, pemuda tinggi yang satu ini sudah tidak diragukan lagi kegantengannya. Sikapnya yang sopan dan santun membuat semua orang menyukainya.",
     img: Img4,
   },
 ];
@@ -90,7 +90,7 @@ const ContactComp = () => {
           {ContactData.map(({ id, name, text, img }) => {
             return (
               <div key={id} className="my-6">
-                <div className="flex flex-col justify-center items-center gap-4 text-center shadow-lg p-4 mx-4 rounded-xl bg-primary/10 relative">
+                <div className="flex flex-col justify-center items-center gap-4 text-center shadow-lg p-6 mx-4 rounded-xl bg-primary/10 relative">
                   <img
                     src={img}
                     className="rounded-full block mx-auto"

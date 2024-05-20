@@ -5,7 +5,6 @@ import { useLocation } from "react-router-dom";
 const airportCodes = {
   surabaya: "SUB.AIRPORT",
   jakarta: "CGK.AIRPORT",
-  // tambahkan konversi lainnya jika diperlukan
 };
 
 const formatDate = (date) => {
@@ -76,13 +75,24 @@ const PesawatPage = () => {
               results.data.aggregation &&
               results.data.aggregation.airlines &&
               results.data.aggregation.airlines.map((airline, index) => (
-                <li key={index} className="m-3">
-                  <div>Flight Name: {airline.name}</div>
-                  <img src={airline.logoUrl} />
-                  <div>
-                    {formatToIDR(
-                      airline.minPrice.units + airline.minPrice.nanos / 1e9
-                    )}
+                <li
+                  key={index}
+                  className="flex items-center p-4 border-b border-gray-200"
+                >
+                  <img
+                    src={airline.logoUrl}
+                    alt={`${airline.name} logo`}
+                    className="w-12 h-12 mr-4"
+                  />
+                  <div className="flex-1">
+                    <div className="font-semibold text-lg">
+                      Flight Name: {airline.name}
+                    </div>
+                    <div className="text-gray-500">
+                      {formatToIDR(
+                        airline.minPrice.units + airline.minPrice.nanos / 1e9
+                      )}
+                    </div>
                   </div>
                 </li>
               ))}
