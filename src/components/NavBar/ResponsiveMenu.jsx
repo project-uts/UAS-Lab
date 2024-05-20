@@ -8,7 +8,7 @@ import {
 import { FaBusSimple, FaBowlFood } from "react-icons/fa6";
 import { IoMdContact } from "react-icons/io";
 import { Link } from "react-router-dom";
-
+import { MdOutlineCardTravel } from "react-icons/md";
 const navbarLinks = [
   {
     name: "Home",
@@ -99,7 +99,10 @@ const ResponsiveMenu = ({ showMenu, setshowMenu }) => {
                       <span>{name}</span>
                     </>
                   ) : name === "Travel" ? (
-                    <span>{name}</span>
+                    <>
+                      <MdOutlineCardTravel size={24} className="mr-2" />
+                      <span>{name}</span>
+                    </>
                   ) : (
                     name
                   )}
